@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            text-align: center;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yes {
+            background-color: red;
+            color: white;
+        }
+        #no {
+            background-color: white;
+            color: black;
+            position: absolute;
+        }
+        #gif {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Will you be my Valentine? ❤️</h1>
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+    <img id="gif" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2FiemU2azl3MWx2NmtjeHZzOXhwaGl3eDRkMTMyYjdsbzB2ZTZlYyZlcD12MV9pbnRlcm5naWZfYnlfaWQmY3Q9Zw/VIKa3CjZDCoymNcBY5/giphy.gif" alt="Happy GIF">
+    
+    <script>
+        document.getElementById("yes").addEventListener("click", function() {
+            document.getElementById("container").style.display = "none";
+            document.getElementById("gif").style.display = "block";
+        });
+
+        document.getElementById("no").addEventListener("mouseover", function() {
+            let maxX = window.innerWidth - this.clientWidth;
+            let maxY = window.innerHeight - this.clientHeight;
+            let randomX = Math.min(Math.max(0, this.offsetLeft + (Math.random() * 400 - 200)), maxX);
+            let randomY = Math.min(Math.max(0, this.offsetTop + (Math.random() * 400 - 200)), maxY);
+            this.style.left = randomX + "px";
+            this.style.top = randomY + "px";
+        });
+    </script>
+</body>
+</html>
